@@ -1,0 +1,181 @@
+#+TITLE:        Introducing MAXS
+#+AUTHOR:       Florian Schmaus
+#+EMAIL:        flo@geekplace.eu
+#+OPTIONS:      author:nil
+#+STARTUP:      noindent
+
+* What is MAXS?
+
+MAXS is an acronym for *M* odular *A* ndroid *X* MPP *S* uite and
+consists of /modules/, /transports/ and the /main/ application.
+
+/Modules/ provide the specialized functionality. For example the
+bluetoothadmin module allows you to enable or disable the Bluetooth
+adapter. It therefore requests the according Android permission to do
+so. Usually, every module is specialized by a particular Android
+permission.
+
+/Modules/ are able to interact together. For example, having alone the
+smsnotify module installed, will only show new SMS notifications with
+the sender number, but not the name of the sender, since the smsnotify
+module is unable to read your contacts. But if you install the
+contactsread module, the smsnotify module will be able to query your
+contacts for one with the given number.
+
+/Transports/ send notifications to the user and receive commands.
+
+/MAXS main/ glues together the different /modules/ and /transports/.
+
+MAXS is heavily inspired by GTalkSMS, and hence it shares many ideas
+with GTalkSMS. In fact we hope that MAXS will share the same feature
+set as GTalkSMS at some point.
+
+** Modular and Secure!
+
+MAXS is split into a main component, which we refer to as /main/ from
+now on, transport components and various modules. It is the job of
+/main/ to forward incoming commands to the modules and send the answer
+message from the modules back to the origin transport.
+
+The modular design wouldn't be possible without Android's great
+inter-process communication (IPC) capabilities. For security reasons
+the IPC interfaces of MAXS are secured by custom Android permissions.
+
+** Resource-efficient
+
+MAXS does not use [[http://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)][foreground services]]. This allows Android to reclaim
+memory by killing MAXS services when needed. Usually these killed
+services are restared after a few seconds. MAXS saves it's full state
+to permantent storage, to easily recover from those interruptions.
+
+In order to lower CPU and radio usage, MAXS follows these simple
+principles:
+
+- Send as much data at once as possible
+- Only send data if there is an interested receiver
+- Try to avoid sending data if the device is on battery
+
+Furthermore MAXS avoids library dependencies where possible. Being not
+really a GUI focused app, there is no need for Action Bar
+Sherlok. MAXS does not display any ads, so it does not have to depend
+on ad libraries (Google AdMob and such). This helps to reduce the
+overall memory footprint of MAXS.
+
+* What can MAXS do for me?
+
+You can get notifications about events on your Android device. Typical
+examples include 
+- New SMS messages
+- Incoming phone calls
+- Current Battery state, i.e. percent and power supply source
+  (AC/USB/Battery)
+
+You are also able to control most aspects of your Android device. For
+example:
+- Send SMS messages
+- Disable or enable the Bluetooth Adapter
+- Query the contacts
+- Set or retrieve the clipboard content
+
+* How does it work?
+
+MAXS commands are send from a /master JID/ over a transport component
+(currently only XMPP) to the main component, which relays the commands
+to the according module.
+
+A command usually consists of a command string, a sub command string
+and the optional arguments for the command. Usually the different
+strings are separated by a single space, but in certain situations,
+two spaces are required.
+
+#+BEGIN_EXAMPLE
+<command> <subCommand> <args>
+#+END_SRC
+
+** Enabling or disabling the Bluetooth adapter
+
+#+BEGIN_EXAMPLE
+[17:14:02] User: bluetooth disable
+[17:14:04] AndroidDevice: Disabling bluetooth adapter
+[17:14:04] AndroidDevice: Bluetooth adapter changed state from 'on' to 'turning off'
+[17:14:07] AndroidDevice: Bluetooth adapter changed state from
+'turning off' to 'off'
+#+END_SRC
+
+** Retrieving the clipboard contents
+
+#+BEGIN_EXAMPLE
+[17:19:19] User: clipboard set This is now the content of the device's clipboard
+[17:19:19] AndroidDevice: Clipboard set to: This is now the content of the device's clipboard
+[17:19:28] User: clipboard get
+[17:19:28] AndroidDevice: Clipboard: This is now the content of the
+device's clipboard
+#+END_SRC
+
+** Receiving and sending SMS
+
+#+BEGIN_EXAMPLE
+[17:20:49] User: sms send Jane Doe  Have fun, see you later :)
+[17:21:02] AndroidDevice: Sending SMS to Jane Doe (+49424242):
+Have fun, see you later :)
+[17:21:05] AndroidDevice: SMS sent to Jane Doe (+49424242): Have
+fun, see you...
+[17:21:07] AndroidDevice: Recent contact: Jane Doe (+49424242)
+[17:21:14] AndroidDevice: SMS delivered to Jane Doe (+49424242):
+Have fun, see you...
+#+END_SRC
+
+In this example =sms= is the command, and =send= is the sub
+command. Everything after the =send= is the argument for the
+command. Notice that *after the name, there are two spaces, to
+distinguish the receivers name from the SMS body.
+
+Also notice that sending a SMS also sets the /recent contact/ to the
+receiver. The recent contact is used to remember the last contact the
+user interacted with. It is, for example, also set when a new SMS
+arrives and makes it easy to reply to the SMS message with the =reply
+to= command/sub command.
+
+#+BEGIN_EXAMPLE
+[20:39:48] AndroidDevice: New SMS Received
+Jane Doe (+49424242): How are you?
+[20:39:52]: AndroidDevice: Recent contact: Jane Doe (+49424242)
+[20:40:19] User: reply to Fine thanks :)
+[20:40:22] AndroidDevice: SMS sent to Jane Doe (+49424242): Fine thanks :)
+[20:40:27] AndroidDevice: SMS delivered to Jane Doe (+49424242): Fine thanks :)
+#+END_SRC
+
+Note that some commands have default sub commands if there is none
+given. MAXS automatically inserts those commands. Furthermore there
+are short commands for some commands. For example the short command
+for =reply= is =r=. And since =to= is the default sub command for
+=reply= one could also write simply =r= in the example above.
+
+#+BEGIN_EXAMPLE
+[20:39:48] AndroidDevice: New SMS Received
+Jane Doe (+49424242): How are you?
+[20:39:52] AndroidDevice: Recent contact: Jane Doe (+49424242)
+[20:40:19] User: r Fine thanks :)
+[20:40:22] AndroidDevice: SMS sent to Jane Doe (+49424242): Fine thanks :)
+[20:40:27] AndroidDevice: SMS delivered to Jane Doe (+49424242): Fine thanks :)
+#+END_SRC
+
+** Display the current battery status
+
+MAXS displays a few status items in the status string of your IM
+system (e.g. XMPP presence status)
+
+#+BEGIN_EXAMPLE
+[22:08:20] My Droid is now Available (95-100% - Battery)
+#+END_SRC
+
+* What are the available commands?
+
+Try sending simply =help= as command.
+
+* How can I configure MAXS?
+
+Have a look at the [[file:quickstart.org][Quickstart Guide]]
+
+#  LocalWords:  odular ndroid MPP ervice bluetoothadmin smsnotify sms
+#  LocalWords:  contactsread GTalkSMS bluetooth AndroidDevice

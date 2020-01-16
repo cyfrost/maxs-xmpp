@@ -1,0 +1,17 @@
+/.gradle/
+/build/
+/build.gradle
+/keystore.properties
+/.idea/
+/*.iml
+/settings.gradle
+
+.classpath
+.project
+.settings
+local.properties
+Makefile
+bin/
+gen/
+libs/
+res-src/

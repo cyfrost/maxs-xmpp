@@ -1,0 +1,28 @@
+#+TITLE:        MAXS Module SmsWrite: User Guide
+#+AUTHOR:       Florian Schmaus
+#+EMAIL:        flo@geekplace.eu
+#+OPTIONS:      author:nil
+#+STARTUP:      noindent
+
+* Overview
+
+Modify the system's SMS database, e.g. add new messages to it.
+
+The main purpose is to add messages send by module-smssend, to the outbox.
+
+| Makes optional use of modules | ContactsRead |
+| Uses *inoffical* Android API  | no   |
+
+** Permissions
+
+| Permission                     | Use                                               |
+|--------------------------------+---------------------------------------------------|
+| =android.permission.SMS_WRITE= | Write access to system's SMS database             |
+
+* Commands
+
+** =sms= (short command: =s=)
+
+*** =sms write=
+
+This command is not yet implemented.

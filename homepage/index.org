@@ -1,0 +1,236 @@
+#+TITLE:        Project MAXS
+#+AUTHOR:       Florian Schmaus
+#+EMAIL:        flo@geekplace.eu
+#+OPTIONS:      H:2 num:nil author:nil toc:nil
+#+OPTIONS:      timestamp:nil
+#+STARTUP:      noindent
+
+* What is MAXS?
+
+MAXS (Modular Android XMPP Suite), a set of *open-source GPLv3* licensed
+Android applications, allows you to control your Android device and
+receive notifications over XMPP. For example, you can compose and send
+a SMS message on your desktop/laptop by sending a command message from
+every standard compliant XMPP client to MAXS running on your
+smartphone.
+
+MAXS is dedicated to [[file:privacy_policy.org][users privacy]] and choice, that is why it's
+designed modular. This means that the functionality is split across
+components, which are standard Android applications. These components
+can be categorized in three types: /Modules/, /Transports/ and the
+/main/ component. /Modules/ provide the notifications and commands,
+which are exchanged between MAXS and the user over so called
+/transports/. MAXS modules and transports are glued together with the
+so called /MAXS main/ application.
+
+* Quickstart and Documentation
+
+For the impatient [[file:../documentation/quickstart.org][Quickstart Guide]].
+
+It is also a good idea to have a look at the [[file:../documentation/introduction.org][Introduction]].
+
+There is more documentation available at [[../documentation/index.org][projectmaxs.org/docs]].
+
+* Get MAXS
+<<getmaxs>>
+
+** Play Store
+
+*Main*
+
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.main][org.projectmaxs.main]]
+
+*Transport*
+
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.transport.xmpp][org.projectmaxs.transport.xmpp]]
+
+*Modules*
+
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.alarmset][org.projectmaxs.module.alarmset]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.bluetooth][org.projectmaxs.module.bluetooth]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.bluetoothadmin][org.projectmaxs.module.bluetoothadmin]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.clipboard][org.projectmaxs.module.clipboard]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.contactsread][org.projectmaxs.module.contactsread]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.fileread][org.projectmaxs.module.fileread]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.filewrite][org.projectmaxs.module.filewrite]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.locationfine][org.projectmaxs.module.locationfine]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.misc][org.projectmaxs.module.misc]]
+- [[https://play.google.com/store/apps/details?id=Dorg.projectmaxs.module.nfc][org.projectmaxs.module.nfc]]
+- [[https://play.google.com/store/apps/details?id=Dorg.projectmaxs.module.notification][org.projectmaxs.module.notification]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.phonestateread][org.projectmaxs.module.phonestateread]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.ringermode][org.projectmaxs.module.ringermode]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.shell][org.projectmaxs.module.shell]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.smsnotify][org.projectmaxs.module.smsnotify]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.smsread][org.projectmaxs.module.smsread]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.smssend][org.projectmaxs.module.smssend]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.smswrite][org.projectmaxs.module.smswrite]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.wifiaccess][org.projectmaxs.module.wifiaccess]]
+- [[https://play.google.com/store/apps/details?id=org.projectmaxs.module.wifichange][org.projectmaxs.module.wifichange]]
+
+** F-Droid
+
+*Main*
+
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.main][org.projectmaxs.main]]
+
+*Transport*
+
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.transport.xmpp][org.projectmaxs.transport.xmpp]]
+
+*Modules*
+
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.alarmset][org.projectmaxs.module.alarmset]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.bluetooth][org.projectmaxs.module.bluetooth]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.bluetoothadmin][org.projectmaxs.module.bluetoothadmin]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.clipboard][org.projectmaxs.module.clipboard]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.contactsread][org.projectmaxs.module.contactsread]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.fileread][org.projectmaxs.module.fileread]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.filewrite][org.projectmaxs.module.filewrite]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.locationfine][org.projectmaxs.module.locationfine]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.misc][org.projectmaxs.module.misc]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.nfc][org.projectmaxs.module.nfc]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.notification][org.projectmaxs.module.notification]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.phonestateread][org.projectmaxs.module.phonestateread]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.ringermode][org.projectmaxs.module.ringermode]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.shell][org.projectmaxs.module.shell]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.smsnotify][org.projectmaxs.module.smsnotify]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.smsread][org.projectmaxs.module.smsread]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.smssend][org.projectmaxs.module.smssend]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.smswrite][org.projectmaxs.module.smswrite]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.wifiaccess][org.projectmaxs.module.wifiaccess]]
+- [[https://f-droid.org/repository/browse/?fdid=org.projectmaxs.module.wifichange][org.projectmaxs.module.wifichange]]
+
+** Direct download (not recommened)
+
+MAXS =.apk='s, signed with the same key as the Play Store releases,
+can be directly downloaded from [[../releases/][projectmaxs.org/releases.]] Use this
+method of obtaining MAXS only if you really have to.
+
+** Nightlies
+
+MAXS Nightlies, signed with the release key, can be found at [[http://projectmaxs.org/releases/nightlies/][http://projectmaxs.org/releases/nightlies]].
+
+If you want to update MAXS to the latest nightlies you can use the =installNightlies.sh= script.
+
+#+BEGIN_SRC
+curl https://bitbucket.org/projectmaxs/maxs/raw/master/scripts/installNightlies.sh |bash
+#+END_SRC
+
+* Beta Testing
+  :PROPERTIES:
+  :CUSTOM_ID: beta
+  :END:
+
+If you like help testing new versions, you need to become a member of
+the Google+ [[https://plus.google.com/communities/104520928563180749625]["MAXS Beta Testers"]] community. Then you can use the
+following links to become a beta tester for the particular MAXS component.
+
+*Main*
+
+- [[https://play.google.com/apps/testing/org.projectmaxs.main][org.projectmaxs.main]]
+
+*Transport*
+
+- [[https://play.google.com/apps/testing/org.projectmaxs.transport.xmpp][org.projectmaxs.transport.xmpp]]
+
+*Modules*
+
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.alarmset][org.projectmaxs.module.alarmset]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.bluetooth][org.projectmaxs.module.bluetooth]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.bluetoothadmin][org.projectmaxs.module.bluetoothadmin]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.clipboard][org.projectmaxs.module.clipboard]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.contactsread][org.projectmaxs.module.contactsread]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.fileread][org.projectmaxs.module.fileread]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.filewrite][org.projectmaxs.module.filewrite]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.locationfine][org.projectmaxs.module.locationfine]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.misc][org.projectmaxs.module.misc]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.nfc][org.projectmaxs.module.nfc]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.notification][org.projectmaxs.module.notification]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.phonestateread][org.projectmaxs.module.phonestateread]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.ringermode][org.projectmaxs.module.ringermode]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.shell][org.projectmaxs.module.shell]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.smsnotify][org.projectmaxs.module.smsnotify]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.smsread][org.projectmaxs.module.smsread]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.smssend][org.projectmaxs.module.smssend]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.smswrite][org.projectmaxs.module.smswrite]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.wifiaccess][org.projectmaxs.module.wifiaccess]]
+- [[https://play.google.com/apps/testing/org.projectmaxs.module.wifichange][org.projectmaxs.module.wifichange]]
+
+* Support / Help / Reporting Issues
+
+See [[*Contact][contact]] on how to contact us and ask for help.
+
+If you want to report an issue, have a look at [[file:report_issue.org][Report an Issue]]
+
+* Development
+
+- Source Code: http://projectmaxs.org/source
+- Issue Tracker: http://projectmaxs.org/issues
+- Developer Documentation: http://projectmaxs.org/docs
+- Continuous Integration: http://projectmaxs.org/ci
+- MAXS Nightlies and Releases, signed with release key: [[http://projectmaxs.org/releases/nightlies/][http://projectmaxs.org/releases]]
+- Project MAXS at ohloh.net: https://www.ohloh.net/p/maxs
+ 
+* Contact
+<<contact>>
+
+** IRC
+
+Feel free to join  [[irc://chat.freenode.net/maxs][~#maxs~]] @ freenode. Questions and suggestions are
+welcome, but remeber that this is IRC and it may take a while (~hours,
+days) to get an answer.
+
+** Forum
+
+If you don't want to idle around in IRC, please don't hesitate to use
+[[http://forums.projectmaxs.org][forums.projectmaxs.org]] to ask for support or discuss development of
+MAXS. It's also the right place where bug reports or feature requests
+should get posted.
+
+** Microblog / News Feeds
+
+MAXS has a [[http://www.gnu.org/software/social/][GNU Social]] microblog account that can be found at
+[[https://social.geekplace.eu/maxs]]. This microblog also allows you to
+subscripte to feeds in various formats to keep you informed about the
+latest news:
+
+- [[https://social.geekplace.eu/api/statuses/user_timeline/3.atom][Atom]]
+- [[https://social.geekplace.eu/api/statuses/user_timeline/3.as][Activity Streams]]
+- [[https://social.geekplace.eu/maxs/rss][RSS 1.0]]
+- [[https://social.geekplace.eu/api/statuses/user_timeline/3.rss][RSS 2.0]]
+
+* Donate
+<<Donate>>
+
+** Bitcoin
+
+#+BEGIN_HTML
+<a href="bitcoin:bc1qu482c0tngkcvx3q7mrm8zmuldrh2f2lrh26ym0">
+Donate with bitcoin to bc1qu482c0tngkcvx3q7mrm8zmuldrh2f2lrh26ym0
+</a>
+#+END_HTML
+
+* Acknowledgements
+<<acknowledgements>>
+
+- The [[http://xmpp.org/about-xmpp/xsf/][XMPP Standards Foundation]]
+- [[http://www.igniterealtime.org/projects/smack/][Smack]] Developers
+- [[http://op-co.de/][Ge0rg]] for the [[https://github.com/ge0rg/MemorizingTrustManager][MemorizingTrustManager]]
+
+* Short URLs
+
+| Url                        | Description            |
+|----------------------------+------------------------|
+| [[http://projectmaxs.org/forum][projectmaxs.org/forum]]      | Forum                  |
+| [[http://projectmaxs.org/doc][projectmaxs.org/doc]]        | Documenation           |
+| [[http://projectmaxs.org/quickstart][projectmaxs.org/quickstart]] | Quickstart Guide       |
+| [[http://projectmaxs.org/source][projectmaxs.org/source]]     | Source Code            |
+| [[http://projectmaxs.org/releases][projectmaxs.org/releases]]   | Release APKs           |
+| [[http://projectmaxs.org/fdroid][projectmaxs.org/fdroid]]     | F-Droid                |
+| [[http://projectmaxs.org/play][projectmaxs.org/play]]       | Play Store             |
+| [[http://projectmaxs.org/donate][projectmaxs.org/donate]]     | Donate Information     |
+| [[http://projectmaxs.org/flattr][projectmaxs.org/flattr]]     | Flattr                 |
+| [[http://projectmaxs.org/acks][projectmaxs.org/acks]]       | Acknowledgements       |
+| [[http://projectmaxs.org/privacy][projectmaxs.org/privacy]]    | Pricacy Policy         |
+| [[http://projectmaxs.org/issues][projectmaxs.org/issues]]     | Issue Tracker          |
+| [[http://projectmaxs.org/ci][projectmaxs.org/ci]]         | Continuous Integration |

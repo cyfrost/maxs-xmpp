@@ -1,0 +1,59 @@
+# ProGuard configuration file for MAXS Transport XMPP
+
+# Mostly Smack specific ProGuard instructions, so that ProGuard is
+# able to strip the parts of Smack that aren't used by Transport XMPP
+
+-keep class org.projectmaxs.shared.global.util.Log
+-keep class org.projectmaxs.shared.maintransport.TransportInformation
+
+# ProGuard rules for MAXS's RTool, which uses reflection to retrieve R
+# class members. See http://stackoverflow.com/a/13963437/194894
+-keepattributes InnerClasses
+-keep class **.R
+-keep class **.R$* {
+    <fields>;
+}
+
+################################################################################
+# Custom proguard settings
+
+-dontwarn javax.naming.directory.*
+-dontwarn javax.naming.NamingEnumeration
+-dontwarn javax.naming.NamingException
+
+-dontnote android.os.SystemProperties
+
+-dontnote sun.security.pkcs11.SunPKCS11
+
+# See http://stackoverflow.com/questions/5701126
+-optimizations !code/allocation/variable
+
+# Smack specific configuration
+-keep class org.jivesoftware.smack.debugger.JulDebugger { *; }
+-keep class * implements org.jivesoftware.smack.initializer.SmackInitializer
+-keep class * implements org.jivesoftware.smack.provider.IQProvider
+-keep class * implements org.jivesoftware.smack.provider.ExtensionElementProvider
+-keep class * extends org.jivesoftware.smack.packet.Stanza
+-keep class org.jivesoftware.smack.XMPPConnection
+-keep class org.jivesoftware.smack.util.dns.minidns.MiniDnsResolver
+-keep class org.jivesoftware.smackx.disco.ServiceDiscoveryManager
+-keep class org.jivesoftware.smackx.xhtmlim.XHTMLManager
+-keep class org.jivesoftware.smackx.muc.MultiUserChat
+-keep class org.jivesoftware.smackx.muc.bookmarkautojoin.MucBookmarkAutojoinManager
+-keep class org.jivesoftware.smackx.bytestreams.ibb.InBandBytestreamManager
+-keep class org.jivesoftware.smackx.bytestreams.socks5.Socks5BytestreamManager
+-keep class org.jivesoftware.smackx.filetransfer.FileTransferManager
+-keep class org.jivesoftware.smackx.iqlast.LastActivityManager
+-keep class org.jivesoftware.smackx.commands.AdHocCommandManager
+-keep class org.jivesoftware.smackx.ping.PingManager
+-keep class org.jivesoftware.smackx.privacy.PrivacyListManager
+-keep class org.jivesoftware.smackx.time.EntityTimeManager
+-keep class org.jivesoftware.smackx.vcardtemp.VCardManager
+-keep class org.jivesoftware.smackx.receipts.DeliveryReceiptManager
+
+-keepclasseswithmembers class * extends org.jivesoftware.smack.sasl.SASLMechanism {
+    public <init>(org.jivesoftware.smack.SASLAuthentication);
+}
+
+# Include general Android proguard settings
+-include ../build/proguard-project-shared.txt

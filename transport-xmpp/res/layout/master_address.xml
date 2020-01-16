@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/deleteMasterAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_delete" />
+
+    <TextView
+        android:id="@+id/masterAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="user@example.org"
+        android:layout_toRightOf="@+id/deleteMasterAddress"
+        android:layout_toEndOf="@+id/deleteMasterAddress"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

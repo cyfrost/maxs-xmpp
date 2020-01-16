@@ -1,0 +1,29 @@
+#+TITLE:        MAXS Module NFC: User Guide
+#+AUTHOR:       Florian Schmaus
+#+EMAIL:        flo@geekplace.eu
+#+OPTIONS:      author:nil
+#+STARTUP:      noindent
+
+* Overview
+
+Query the default NFC adapter for its status.
+
+| Makes optional use of modules | none |
+| Uses *inoffical* Android API  | no   |
+
+** Permissions
+
+| Permission                     | Use                                               |
+|--------------------------------+---------------------------------------------------|
+| =android.permission.NFC= | Query the status of the NFC adapter |
+
+* Commands
+
+** =nfc= (short command: =n=)
+
+*** =nfc status=
+
+#+BEGIN_EXAMPLE
+User: nfc status
+AndroidDevice: NFC Adapter is enabled
+#+END_SRC

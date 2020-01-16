@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="master_addresses">Master Addresses</string>
+    <string name="master_addresses_help">Those JIDs will receive notifcations from MAXS and are allowed to send commands.</string>
+    <string name="device_account">Device Account</string>
+    <string name="hint_jid">user@server.tld</string>
+    <string name="excluded_resources">Excluded Resources</string>
+    <string name="hint_resource">resource</string>
+    <string name="advancedSettings">Advanced Settings</string>
+    <string name="registerAccount">Register Account</string>
+    <string name="pref_xmpp_stream_settings">XMPP Stream Settings</string>
+    <string name="pref_xmpp_stream_management">Stream management</string>
+    <string name="pref_xmpp_stream_management_help">Use XMPP stream management (XEP-198) if supported by server. Stream management improves reliability by ensuring that no stanza ist lost.</string>
+    <string name="pref_xmpp_stream_compression">Stream compression</string>
+    <string name="pref_xmpp_stream_compression_help">Use XMPP stream compression if supported by server.</string>
+    <string name="pref_xmpp_stream_compression_sync_flush">Sync flush</string>
+    <string name="pref_xmpp_stream_compression_sync_flush_help">Use sync flush when using compression. Increases compression efficiency but could lead to privacy leaks. Also causes some problems with stream resumption and Prosody (See Prosody Issue 433)</string>
+    <string name="pref_xmpp_stream_encryption">Stream encryption</string>
+    <string name="pref_xmpp_stream_encryption_help">Chose the level of encryption.</string>
+    <string name="pref_xmpp_stream_privacy">Use Privacy Lists</string>
+    <string name="pref_xmpp_stream_privacy_help">Make use of XMPP Privacy Lists, if supported by server, to avoid non master JIDs to flood us with stanzas.</string>
+    <string name="pref_xmpp_stream_hostname_verify">Hostname verification</string>
+    <string name="pref_xmpp_stream_hostname_verify_help">Verify the hostname/servicename found in the TLS certificate if TLS is used. <b>Warning:</b> Disabling verification (may) invalidates all security guarantees provided by TLS. Only disable this setting if you understand the implications.</string>
+    <string name="pref_xmpp_service_settings">XMPP Service Settings</string>
+    <string name="pref_manual_service_settings">Manual service settings</string>
+    <string name="pref_manual_service_settings_help">Allows you to specifiy the XMPP service settings.</string>
+    <string name="pref_manual_service_settings_host">Host</string>
+    <string name="pref_manual_service_settings_host_help">The fully qualified domain name (FQDN) of the host providing the XMPP service.</string>
+    <string name="pref_manual_service_settings_port">Port</string>
+    <string name="pref_manual_service_settings_port_help">The port of the service.</string>
+    <string name="pref_manual_service_settings_service">XMPP Service Name</string>
+    <string name="pref_manual_service_settings_service_help">Usually the domain part of your JID.</string>
+    <string name="pref_app_settings">Application Settings</string>
+    <string name="pref_app_xmpp_debug">XMPP Debug</string>
+    <string name="pref_app_xmpp_debug_help">Log all XMPP stanzas.</string>
+    <string name="pref_app_debug_network">Network Debug</string>
+    <string name="pref_app_debug_network_help">Log extended network information.</string>
+    <string name="pref_app_debug_dns">MiniDNS Debug</string>
+    <string name="pref_app_debug_dns_help">Log extended MiniDNS information.</string>
+    <string name="pref_app_excluded_resources">Excluded Resources</string>
+    <string name="pref_app_excluded_resources_help">Specify XMPP resources from being excluded from notifications.</string>
+    <string name="pref_app_settings_xmpp_intent">XMPP Intent</string>
+    <string name="pref_app_xmpp_intent">Enable XMPP Intent</string>
+    <string name="pref_app_xmpp_intent_help">Send XMPP messages with an intent</string>
+    <string name="pref_app_xmpp_intent_shared_token">XMPP Intent Shared Token</string>
+    <string name="pref_app_xmpp_intent_shared_token_help">A shared token in form of a string.</string>
+
+    <string-array name="array_xmpp_connection_security_entries">
+        <item>Disabled</item>
+        <item>Required</item>
+        <item>Optional</item>
+    </string-array>
+
+</resources>

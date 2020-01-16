@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="startService">Start Service</string>
+    <string name="stopService">Stop Service</string>
+    <string name="pref_app_settings">Application Settings</string>
+    <string name="pref_advanced_settings">Advanced Settings</string>
+    <string name="pref_app_start_stop_options">Start/Stop Options</string>
+    <string name="pref_app_connect_on_main_screen">Connect if MAXS is opened</string>
+    <string name="pref_app_connect_on_main_screen_help">Start the service and try to establish a connection if MAXS is opened. Mostly useful for developers.</string>
+    <string name="pref_app_connect_on_boot_completed">Connect on completed boot</string>
+    <string name="pref_app_connect_on_boot_completed_help">Start the service and try to establish a connection if the device just booted.</string>
+    <string name="info">
+    For more information visit:\n
+    &#8226; <a href="http://projectmaxs.org">projectmaxs.org</a>\n
+    &#8226; <a href="http://projectmaxs.org/docs">projectmaxs.org/docs</a>\n
+    &#8226; <a href="http://projectmaxs.org/forums">projectmaxs.org/forums</a>\n
+    &#8226; #maxs @ freenode (IRC)
+    </string>
+    <string name="perm_group_maxs_label">MAXS Permissions</string>
+    <string name="perm_group_maxs_desc">access and use the Modular Android XMPP Suite (MAXS)</string>
+    <string name="perm_use_main_label">Use MAXS Main</string>
+    <string name="perm_use_main_desc">Allow generic access to the Main component of MAXS.</string>
+    <string name="perm_use_main_as_module_label">Use MAXS Main as Module</string>
+    <string name="perm_use_main_as_module_desc">Allow access to part of the MAXS Main that is required to act as MAXS Module.</string>
+    <string name="perm_use_main_as_transport_label">Use MAXS Main as Transport</string>
+    <string name="perm_use_main_as_transport_desc">Allow access to part of the MAXS Main that is required to act as MAXS Transport.</string>
+    <string name="perm_use_module_label">Use MAXS Module</string>
+    <string name="perm_use_module_desc">Allow access to MAXS Modules.</string>
+    <string name="perm_use_transport_label">Use MAXS Transport</string>
+    <string name="perm_use_transport_desc">Allow access to MAXS Transports.</string>
+    <string name="perm_use_filewrite_label">Use MAXS FileWrite</string>
+    <string name="perm_use_filewrite_desc">Allow the usage of the MAXS Module FileWrite. This includes reading, writing and deleting files of the devices storage.</string>
+    <string name="perm_use_fileread_label">Use MAXS FileRead</string>
+    <string name="perm_use_fileread_desc">Allow the usage of the MAXS Module FileRead.</string>
+    <string name="perm_use_read_contacts_label">Use MAXS Module ContactsRead</string>
+    <string name="perm_use_read_contacts_desc">Allow the usage of the MAXS Module ContactsRead. This includes read access to all contacts.</string>
+    <string name="perm_use_write_sms_label">Use MAXS SmsWrite</string>
+    <string name="perm_use_write_sms_desc">Allow the usage of the MAXS Module SmsWrite.</string>
+    <string name="perm_use_incoming_filetransfer_service_label">Use MAXS Incoming Filetransfer Service</string>
+    <string name="perm_use_incoming_filetransfer_service_desc">Allow to use the MAXS components for incoming filetransfers.</string>
+    <string name="perm_use_outgoing_filetransfer_service_label">Use MAXS Outgoing Filetransfer Service</string>
+    <string name="perm_use_outgoing_filetransfer_service_desc">Allow to use the MAXS components for outgoing filetransfers.</string>
+    <string name="perm_use_phonestateread_service_label">Use MAXS Phonestateread Service</string>
+    <string name="perm_use_phonestateread_service_desc">Allow to use the MAXS Phonestateread to read the state of the device.</string>
+</resources>

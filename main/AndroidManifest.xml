@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+    package="org.projectmaxs.main"
+    android:versionCode="2000502508"
+    android:versionName="0.5.9-SNAPSHOT" >
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <permission-group
+        android:name="org.projectmaxs.permissions"
+        android:description="@string/perm_group_maxs_desc"
+        android:label="@string/perm_group_maxs_label" />
+
+    <permission
+        android:name="org.projectmaxs.permission.USE_MAIN"
+        android:description="@string/perm_use_main_desc"
+        android:label="@string/perm_use_main_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.USE_MAIN_AS_MODULE"
+        android:description="@string/perm_use_main_as_module_desc"
+        android:label="@string/perm_use_main_as_module_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.USE_MAIN_AS_TRANSPORT"
+        android:protectionLevel="dangerous"
+        android:description="@string/perm_use_main_as_transport_desc"
+        android:label="@string/perm_use_main_as_transport_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.USE_MODULE"
+        android:protectionLevel="dangerous"
+        android:description="@string/perm_use_module_desc"
+        android:label="@string/perm_use_module_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.USE_TRANSPORT"
+        android:description="@string/perm_use_transport_desc"
+        android:label="@string/perm_use_transport_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.USE_FILEWRITE"
+        android:description="@string/perm_use_filewrite_desc"
+        android:label="@string/perm_use_filewrite_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.USE_FILEREAD"
+        android:description="@string/perm_use_fileread_desc"
+        android:label="@string/perm_use_fileread_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.READ_CONTACTS"
+        android:protectionLevel="dangerous"
+        android:description="@string/perm_use_read_contacts_desc"
+        android:label="@string/perm_use_read_contacts_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.WRITE_SMS"
+        android:description="@string/perm_use_write_sms_desc"
+        android:label="@string/perm_use_write_sms_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.USE_INCOMING_FILETRANSFER_SERVICE"
+        android:description="@string/perm_use_incoming_filetransfer_service_desc"
+        android:label="@string/perm_use_incoming_filetransfer_service_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.USE_OUTGOING_FILETRANSFER_SERVICE"
+        android:description="@string/perm_use_outgoing_filetransfer_service_desc"
+        android:label="@string/perm_use_outgoing_filetransfer_service_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+    <permission
+        android:name="org.projectmaxs.permission.USE_PHONESTATE_READ"
+        android:description="@string/perm_use_phonestateread_service_desc"
+        android:label="@string/perm_use_phonestateread_service_label"
+        android:permissionGroup="org.projectmaxs.permissions" />
+
+    <uses-permission android:name="org.projectmaxs.permission.USE_MAIN" />
+    <uses-permission android:name="org.projectmaxs.permission.USE_MAIN_AS_MODULE" />
+    <uses-permission android:name="org.projectmaxs.permission.USE_MODULE" />
+    <uses-permission android:name="org.projectmaxs.permission.USE_TRANSPORT" />
+    <uses-permission android:name="org.projectmaxs.permission.USE_FILEWRITE" />
+    <uses-permission android:name="org.projectmaxs.permission.USE_FILEREAD" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_maxs"
+        android:label="@string/app_name"
+        tools:ignore="UnusedAttribute,GoogleAppIndexingWarning"
+        android:logo="@drawable/ic_maxs" >
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="org.projectmaxs.shared.global.util.PermissionUtil$RequestPermissionDialog" />
+        <activity android:name=".activities.AdvancedSettings" />
+        <activity android:name=".activities.Modules" />
+        <activity android:name=".activities.ImportExportSettings" />
+
+        <service
+            android:name=".MAXSService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="org.projectmaxs.main.START_SERVICE" />
+                <action android:name="org.projectmaxs.main.STOP_SERVICE" />
+                <action android:name="org.projectmaxs.main.NETWORK_STATUS_CHANGED" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".MAXSIntentService"
+            android:permission="org.projectmaxs.permission.USE_MAIN" >
+            <intent-filter>
+                <action android:name="org.projectmaxs.main.EXPORT_TO_FILE" />
+                <action android:name="org.projectmaxs.main.IMPORT_EXPORT_STATUS" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".MAXSModuleIntentService"
+            android:permission="org.projectmaxs.permission.USE_MAIN_AS_MODULE" >
+            <intent-filter>
+                <action android:name="org.projectmaxs.main.REGISTER_MODULE" />
+                <action android:name="org.projectmaxs.main.SET_RECENT_CONTACT" />
+                <action android:name="org.projectmaxs.main.UPDATE_STATUS" />
+                <action android:name="org.projectmaxs.main.SEND_MESSAGE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".MAXSTransportIntentService"
+            android:permission="org.projectmaxs.permission.USE_MAIN_AS_TRANSPORT" >
+            <intent-filter>
+                <action android:name="org.projectmaxs.main.REGISTER_TRANSPORT" />
+                <action android:name="org.projectmaxs.main.PERFORM_COMMAND" />
+                <action android:name="org.projectmaxs.main.UPDATE_TRANSPORT_STATUS" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".PurgeOldCommandsService"
+            android:exported="false" />
+
+        <provider
+            android:name=".MAXSContentProvider"
+            android:authorities="org.projectmaxs.main"
+            android:exported="true"
+            android:permission="org.projectmaxs.permission.USE_MAIN_AS_MODULE" >
+        </provider>
+
+        <receiver android:name=".receivers.PackageReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receivers.BootCompletedReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

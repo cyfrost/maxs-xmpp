@@ -1,0 +1,7 @@
+drawable-hdpi/
+drawable-mdpi/
+drawable-xhdpi/
+values/shared*.xml
+values-*
+values/version.xml
+

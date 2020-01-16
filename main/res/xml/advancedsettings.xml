@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_app_settings" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/pref_app_debug_log_key"
+            android:summary="@string/pref_app_debug_log_help"
+            android:title="@string/pref_app_debug_log" />
+
+
+        <PreferenceScreen android:title="@string/pref_app_start_stop_options" >
+            <CheckBoxPreference
+                android:key="@string/pref_app_connect_on_boot_completed_key"
+                android:summary="@string/pref_app_connect_on_boot_completed_help"
+                android:title="@string/pref_app_connect_on_boot_completed" />
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="@string/pref_app_connect_on_main_screen_key"
+                android:summary="@string/pref_app_connect_on_main_screen_help"
+                android:title="@string/pref_app_connect_on_main_screen" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+</PreferenceScreen>
